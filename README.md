@@ -1,9 +1,10 @@
-# Frontend-Tests
+# ecommerce-cypress-tests
+This repository contains automated end-to-end (E2E) tests using Cypress for product comparison on Amazon and Flipkart to identify the lowest cost.
 
 ## Project Setup
 
 1. Clone the repository
-2. Switch to the appropriate branch - example: `dev`
+2. Switch to the appropriate branch - for example: `dev`
 
 ### Install dependencies
 
