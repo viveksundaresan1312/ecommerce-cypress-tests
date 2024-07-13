@@ -5,10 +5,12 @@ describe("search for a product on Amazon and Flipkart, comparing the lowest-cost
 	it("Search for Ringke Onyx Compatible with Samsung Galaxy S23 Ultra on amazon and check price", () => {
 		cy.writeFile(filePath, []);
 		cy.visit("https://www.amazon.in/");
+		cy.screenshot();
 		cy.get('[id="twotabsearchtextbox"]').type(
 			"Ringke Onyx Compatible with Samsung Galaxy S23 Ultra"
 		);
 		cy.get('[id="nav-search-submit-button"]').click();
+		cy.screenshot();
 
 		//wait for 2 seconds
 		cy.wait(2000);
@@ -18,6 +20,7 @@ describe("search for a product on Amazon and Flipkart, comparing the lowest-cost
 			.contains("Ringke Onyx Compatible with Samsung Galaxy S23 Ultra")
 			.invoke("removeAttr", "target")
 			.click();
+		cy.screenshot();
 
 		//wait for 2 seconds
 		cy.wait(15000);
@@ -50,10 +53,12 @@ describe("search for a product on Amazon and Flipkart, comparing the lowest-cost
 	//search for Ringke Back Cover for Samsung Galaxy S23 Ultra 5G  (Green, Pack of: 1) on flipkart
 	it("Search for Ringke Back Cover for Samsung Galaxy S23 Ultra 5G  (Green, Pack of: 1) on flipkart and check price", () => {
 		cy.visit("https://www.flipkart.com/");
+		cy.screenshot();
 		cy.get('input[title="Search for Products, Brands and More"]').type(
 			"Ringke Back Cover for Samsung Galaxy S23 Ultra 5G  (Green, Pack of: 1)"
 		);
 		cy.get('button[type="submit"]').click();
+		cy.screenshot();
 
 		//wait for 2 seconds
 		cy.wait(2000);
@@ -62,6 +67,7 @@ describe("search for a product on Amazon and Flipkart, comparing the lowest-cost
 		cy.get('a[title="Ringke Back Cover for Samsung Galaxy S23 Ultra 5G"]')
 			.invoke("removeAttr", "target", "_self")
 			.click();
+		cy.screenshot();
 
 		//get product details for comparison
 		cy.url().as("currentUrl");
@@ -102,9 +108,11 @@ describe("search for a product on Amazon and Flipkart, comparing the lowest-cost
 				//add product to cart
 				cy.get('[id="add-to-cart-button"]').click();
 				cy.get('[id="attach-close_sideSheet-link"]').click();
+				cy.screenshot();
 
 				//navigate to buy now
 				cy.get("#buy-now-button").click();
+				cy.screenshot();
 			}
 			//add product to cart
 			if (lowestPricedProduct.id === "flipkart") {
